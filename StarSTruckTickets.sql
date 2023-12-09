@@ -143,6 +143,34 @@ VALUES
     ('john_lee', 'John Lee', 'john.lee@gmail.com', 1234567890, 1),
     ('sam_smith', 'Sam Smith', 'sam.smith@gmail.com', 9876543210, 3);
 
+-- 3. DELETE
+
+-- Delete unpaid payments
+DELETE FROM Payments
+USING Tickets
+WHERE Payments.Status = 'Pending' AND Payments.TicketID = Tickets.TicketID;
+
+-- Delete payments associated with a specific registration
+DELETE FROM Payments
+WHERE TicketID IN (
+    SELECT TicketID
+    FROM Tickets
+    WHERE EventID = (
+        SELECT EventID
+        FROM UserRegistrations
+        WHERE RegistrationID = <your_registration_id>
+    )
+);
+
+-- Delete from EventRegistrations
+DELETE FROM EventRegistrations
+WHERE EventID IN (
+    SELECT EventID
+    FROM Events
+    GROUP BY EventID
+    HAVING COUNT(*) <= 1
+);
+
 -- 4. SELECT AND WHERE
 
 -- User login query
