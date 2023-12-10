@@ -80,31 +80,45 @@ CREATE TABLE UserRegistrations (
 -- Insert into Users table for User Management
 INSERT INTO Users (UserName, FullName, UserEmail, UserPassword, PhoneNumber)
 VALUES 
-    ('johnlee', 'John Lee', 'john.lee@gmail.com', 'john_password', '1234567890'),
-    ('samsmith', 'Sam Smith', 'sam.smith@gmail.com', 'sam_password', '1234567890'),
-    ('anthonyjones', 'Anthony Jones', 'anthony.jones@gmail.com', 'anthony_password', '1234567890'),
-    ('snowwhite', 'Snow White', 'snow.white@gmail.com', 'snow_password', '1234567890'),
-    ('michaeljames', 'Michael James', 'michael.james@gmail.com', 'michael_password', '1234567890'),
-    ('taylorshees', 'Taylor Shees', 'taylor.shees@gmail.com', 'taylor_password', '1234567890'),
-    ('jamesgordon', 'James Gordon', 'james.gordon@gmail.com', 'james_password', '1234567890');
+    ('johnlee', 'John Lee', 'john.lee@gmail.com', 'john_password', '099123456789'),
+    ('samsmith', 'Sam Smith', 'sam.smith@gmail.com', 'sam_password', '09189767783'),
+    ('anthonyjones', 'Anthony Jones', 'anthony.jones@gmail.com', 'anthony_password', '09992678901'),
+    ('snowwhite', 'Snow White', 'snow.white@gmail.com', 'snow_password', '09123456121'),
+    ('michaeljames', 'Michael James', 'michael.james@gmail.com', 'michael_password', '09098734273'),
+    ('taylorshees', 'Taylor Shees', 'taylor.shees@gmail.com', 'taylor_password', '09344552216'),
+    ('jamesgordon', 'James Gordon', 'james.gordon@gmail.com', 'james_password', '09673425312'),
+    ('sophiaharrison', 'Sophia Harrison', 'sophia.harrison@gmail.com', 'sophia_password', '09674621734'),
+    ('williamlim', 'William Lim', 'william.lim@gmail.com', 'william_password', '09871232122'),
+    ('martinluther', 'Martin Luther', 'martin.luther@gmail.com', 'martin_password', '09755646734');
 
--- Insert into Admins table for Admin Management (3 admins)
+-- Insert into Admins table for Admin Management (10 admins)
 INSERT INTO Admins (AdminEmail, AdminPassword)
 VALUES 
     ('Robbie@StarTruck.com', 'Robbie_password'),
     ('Julienne@StarTruck.com', 'Julienne_password'),
-    ('Winston@StarTruck.com', 'Winston_password');
+    ('Winston@StarTruck.com', 'Winston_password'),
+    ('Mhark@StarTruck.com', 'Mhark_password'),
+    ('Julbiene@StarTruck.com', 'Julbiene_password'),
+    ('Gecelyn@StarTruck.com', 'Gecelyn_password'),
+    ('Iris@StarTruck.com', 'Iris_password'),
+    ('Rona@StarTruck.com', 'Rona_password'),
+    ('Sydney@StarTruck.com', 'Sydney_password'),
+    ('Abby@StarTruck.com', 'Abby_password');
 
 -- Insert into Events table for Event Creation
-INSERT INTO Events (EventName, ArtistName, EventDate, EventLocation, SeatCapacity, TicketPrice, SeatPlan)
+INSERT INTO Events (EventID, EventName, ArtistName, EventDate, EventLocation, SeatCapacity, TicketPrice, SeatPlan)
 VALUES 
-    ('Robbie World Tour', 'Robbie', '2024-06-27 19:00:00', 'Philippine Arena', 2000, 5000.00, NULL),
-    ('RIVERMAYA THE REUNION', 'Rivermaya', '2024-02-17 19:00:00', 'SMDC Festival Grounds', 1000, 2250-14750.00, NULL),
-    ('COLDPLAY MUSIC OF SPHERES WORLD TOUR', 'Coldplay', '2024-01-19 20:00:00', 'Philippine Arena', NULL, 2, NULL),
-    ('ED SHEERAN TOUR', 'Ed Sheeran', '2024-03-09 19:00:00', 'SMDC Festival Grounds', NULL, 3, NULL),
-    ('SEVENTEEN TOUR FOLLOW TO BULACAN', 'Seventeen', '2024-01-13 19:30:00', 'Philippine Sports Stadium', NULL, 4, NULL),
-    ('THE SHOW NIALL HORAN LIVE ON TOUR 2024', 'Niall Horan', '2024-05-13 18:00:00', 'SM Mall Of Asia Arena', NULL, 5, NULL);
-
+    (1, 'Robbie World Tour', 'Robbie', '2024-06-27 19:00:00', 'Philippine Arena', 25000, 6000.00, NULL),
+    (2,'RIVERMAYA THE REUNION', 'Rivermaya', '2024-02-17 19:00:00', 'SMDC Festival Grounds', 22000, 12000.00, NULL),
+    (3, 'COLDPLAY MUSIC OF SPHERES WORLD TOUR', 'Coldplay', '2024-01-19 20:00:00', 'Philippine Arena', 30000, 12000.00, NULL),
+    (4, 'ED SHEERAN TOUR', 'Ed Sheeran', '2024-03-09 19:00:00', 'SMDC Festival Grounds', 28000, 10000.00, NULL),
+    (5, 'SEVENTEEN TOUR FOLLOW TO BULACAN', 'Seventeen', '2024-01-13 19:30:00', 'Philippine Sports Stadium', 25000, 12000.00, NULL),
+    (6, 'THE SHOW NIALL HORAN LIVE ON TOUR 2024', 'Niall Horan', '2024-05-13 18:00:00', 'SM Mall Of Asia Arena', 27000, 10000.00, NULL),
+    (7, 'BTS LOVE YOURSELF WORLD TOUR', 'BTS', '2024-04-30 20:00:00', 'Mall of Asia Arena', 30000, 8000.00, NULL),
+    (8, 'Adele Live in Concert', 'Adele', '2024-08-15 21:00:00', 'Smart Araneta Coliseum', 22000, 10000.00, NULL),
+    (9,'Imagine Dragons Evolve Tour', 'Imagine Dragons', '2024-07-08 18:30:00', 'MOA Concert Grounds', 28000, 7000.00, NULL),
+    (10,'Taylor Swift Reputation Stadium Tour', 'Taylor Swift', '2024-06-12 20:15:00', 'Philippine Arena', 25000, 12000.00, NULL);
+    
 -- Insert into Tickets table for Ticket Management
 INSERT INTO Tickets (UserID, EventID, TypeName, Price, Quantity, PaymentStatus)
 VALUES 
@@ -114,18 +128,24 @@ VALUES
     (4, 5, 'BRONZE', 2250.00, 1, 'Pending'),
     (5, 4, 'GOLD', 11750.00, 2, 'Pending'),
     (6, 2, 'LOWERBOX', 10000.00, 1, 'Pending'),
-    (7, 1, 'GENERAL ADMISSION', 3000.00, 2, 'Pending');  
+    (7, 1, 'GENERAL ADMISSION', 3000.00, 2, 'Pending'),
+    (8, 8, 'VIP STANDING', 12000.00, 2, 'Pending'),
+    (9, 9, 'UPPERBOX', 6000.00, 1, 'Pending'),
+    (10, 10, 'SILVER', 5000.00, 3, 'Pending');
 	
 -- Insert into Payments table for Payment Processing
 INSERT INTO Payments (TicketID, Amount, PaymentDate, PaymentMethod, Status)
 VALUES 
-    (1, 600.00, '2023-10-16 12:45:00', 'Gcash', 'Paid'),
-    (2, 500.00, '2023-10-17 09:30:00', 'Visa', 'Paid'),
-    (3, 750.00, NULL, 'Pending', 'Pending'),
-    (4, 1200.00, '2023-10-21 14:15:00', 'Gcash', 'Paid'),
-    (5, 400.00, '2023-10-23 20:30:00', 'Visa', 'Paid'),
-    (6, 1000.00, DEFAULT, 'Pending', 'Pending'),
-    (7, 1600.00, '2023-10-29 16:00:00', 'Gcash', 'Paid'); 
+    (1, 30000.00, '2023-10-16 12:45:00', 'Gcash', 'Paid'),
+    (2, 7000.00, '2023-10-17 09:30:00', 'Visa', 'Paid'),
+    (3, 20250.00, DEFAULT, 'Pending', 'Pending'),
+    (4, 2250.00, '2023-10-21 14:15:00', 'Gcash', 'Paid'),
+    (5, 23500.00, '2023-10-23 20:30:00', 'Visa', 'Paid'),
+    (6, 10000.00, DEFAULT, 'Pending', 'Pending'),
+    (7, 6000.00, '2023-10-29 16:00:00', 'Gcash', 'Paid'),
+    (8, 24000.00, '2023-11-05 15:20:00', 'PayPal', 'Paid'),
+    (9, 6000.00, '2023-11-08 11:45:00', 'MasterCard', 'Paid'),
+    (10, 1500.00, '2023-11-12 14:30:00', 'Gcash', 'Paid');
 	
 -- Insert into EventRegistrations table for Admin Event Registrations
 INSERT INTO EventRegistrations (AdminID, EventID)
@@ -135,13 +155,24 @@ VALUES
     (3, 3),
     (2, 4),
     (1, 5),
-    (2, 6);
+    (2, 6),
+    (1, 8),
+    (2, 9),
+    (3, 10);
 
 -- Insert into UserRegistrations table for User Event Registrations
 INSERT INTO UserRegistrations (UserName, FullName, UserEmail, PhoneNumber, EventID)
 VALUES 
-    ('john_lee', 'John Lee', 'john.lee@gmail.com', 1234567890, 1),
-    ('sam_smith', 'Sam Smith', 'sam.smith@gmail.com', 9876543210, 3);
+    ('alice_smith', 'Alice Smith', 'alice.smith@gmail.com', '09123456789', 1),
+    ('bob_jones', 'Bob Jones', 'bob.jones@gmail.com', '09234567890', 3),
+    ('emily_white', 'Emily White', 'emily.white@gmail.com', '09345678901', 4),
+    ('david_brown', 'David Brown', 'david.brown@gmail.com', '09456789012', 6),
+    ('lisa_jones', 'Lisa Jones', 'lisa.jones@gmail.com', '09567890123', 2),
+    ('ryan_garcia', 'Ryan Garcia', 'ryan.garcia@gmail.com', '09678901234', 5),
+    ('susan_miller', 'Susan Miller', 'susan.miller@gmail.com', '09789012345', 7),
+    ('michael_white', 'Michael White', 'michael.white@gmail.com', '09890123456', 8),
+    ('olivia_williams', 'Olivia Williams', 'olivia.williams@gmail.com', '09901234567', 9),
+    ('andrew_clark', 'Andrew Clark', 'andrew.clark@gmail.com', '09111223344', 10);
 
 -- 3. DELETE
 
@@ -285,13 +316,13 @@ ORDER BY
 
 --Admin registers a new event
 INSERT INTO Events (
-    EventName, ArtistName, 
+    EventID, EventName, ArtistName, 
     EventDate, EventLocation, 
     SeatCapacity, 
     TicketPrice, 
     SeatPlan)
 VALUES 
-    ('New Event Name', 'New Artist Name', '2023-12-31 18:00:00', 'New Location', 1000, 50.00, NULL);
+    (11,'New Event Name', 'New Artist Name', '2023-12-31 18:00:00', 'New Location', 1000, 50.00, NULL);
 
 --8. SELECT, MULTIPLE JOIN AND WHERE
 
@@ -577,13 +608,12 @@ SET ArtistName = 'Angela'
 WHERE
     EventName = 'RIVERMAYA THE REUNION';
 
-
 -- Update the quantity for a specific ticket type in the 'RIVERMAYA THE REUNION' event
 UPDATE Tickets
 SET Quantity = 4 
 WHERE
     EventID = (SELECT EventID FROM Events WHERE EventName = 'RIVERMAYA THE REUNION')
-    AND TypeName = '<ticket_type>';
+    AND TypeName = 'FREE';
 	
 -- Update the location for the 'RIVERMAYA THE REUNION' event
 UPDATE Events
